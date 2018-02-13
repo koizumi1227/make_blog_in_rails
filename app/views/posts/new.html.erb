@@ -1,0 +1,17 @@
+<p>日記投稿</p>
+<%= form_for(@post) do |f| %>
+
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content, "本文" %><br />
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "投稿" %>
+  </div>
+<% end %>

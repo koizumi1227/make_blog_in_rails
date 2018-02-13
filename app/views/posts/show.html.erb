@@ -1,0 +1,10 @@
+<p>ブログ表示</p>
+
+<h1><%= @post.title %></h1>
+
+<p><%= @post.content %></p>
+
+<p><%= @post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+<p><%= @post.user.username %></p>
+
+<p><%= link_to "delete", post_path, method: :delete %></p>
