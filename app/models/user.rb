@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :confirmable, authentication_keys: [:login]
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false },
-            :length => { in: 2..20 },
+            length: { in: 2..20 },
             format: { with: /^[a-zA-Z0-9_]*$/,  multiline: true}
 
 
