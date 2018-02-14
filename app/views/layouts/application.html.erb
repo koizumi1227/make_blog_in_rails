@@ -8,7 +8,6 @@
     <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/header' %>
     <!-- devise gem -->
     <p class="notice"><%= notice %></p>
@@ -20,4 +19,6 @@
   <div class="container">
     <%= yield %>
   </div>
+  <%= debug(params) if Rails.env.development? %>
+
   </body>

@@ -1,10 +1,32 @@
 <p>ブログ表示</p>
 
 <h1><%= @post.title %></h1>
-
 <p><%= @post.content %></p>
-
 <p><%= @post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
 <p><%= @post.user.username %></p>
+<!-- ログインをしていれば「削除」linkを表示 -->
+<% if user_signed_in? %>
+  <p><%= link_to "delete", post_path, method: :delete %></p>
+<% end %>
+<hr>
+<h4>コメント</h2>
+<% @post.comments.each do |body| %>
+    <p>名前 : <%= body.commenter %></p>
+    <p>コメント : <%= body.comment %></p>
+    <!-- ログインをしていれば「削除」linkを表示 -->
+    <% if user_signed_in? %>
+      <p><%= link_to '削除', [@post,body] , :method => :delete %></p>
+      <!-- post_comment_path(@post, @post.comments[:id]) -->
+    <% end %>
+<% end %>
 
-<p><%= link_to "delete", post_path, method: :delete %></p>
+<h3>コメントを書く</h2>
+<%= form_for([@post, @post.comments.build]) do |f| %>
+  <p>　<%= f.label :commenter, "名前" %></p>
+  <%= f.text_field :commenter %>
+  <p><%= f.label :comment, "コメント" %></p>
+  <%= f.text_area :comment %>
+  <p><%= f.submit "投稿" %></p>
+<% end %>
+
+<!-- 「コメントを書く」と「表示」を逆にしてeachで回すと「表示」側に空の一覧が作られる -->
