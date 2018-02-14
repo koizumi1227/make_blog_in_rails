@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   validates :username, presence: :true, uniqueness: { case_sensitive: false },
             :length => { in: 2..20 },
-            format: { with: /^[a-zA-Z0-9_]*$/,  :multiline => true}
+            format: { with: /^[a-zA-Z0-9_]*$/,  multiline: true}
 
 
 
