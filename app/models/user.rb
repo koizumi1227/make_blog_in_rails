@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   attr_accessor :login
-  has_many :posts
+  has_many :posts, dependent: :destroy
 
 
   # Include default devise modules. Others available are:
