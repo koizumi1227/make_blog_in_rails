@@ -14,10 +14,8 @@
     <p>名前 : <%= body.commenter %></p>
     <p>コメント : <%= body.comment %></p>
     <!-- ログインをしていれば「削除」linkを表示 -->
-    <% if user_signed_in? %>
-      <p><%= link_to '削除', [@post,body] , :method => :delete %></p>
+      <p><%= link_to '削除', [@post,body], method: :delete if user_signed_in? %></p>
       <!-- post_comment_path(@post, @post.comments[:id]) -->
-    <% end %>
 <% end %>
 
 <h3>コメントを書く</h2>
