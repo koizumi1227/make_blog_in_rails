@@ -7,8 +7,12 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
-    @post.save
-    redirect_to root_path
+    if @post.save
+      redirect_to root_path
+    else
+      flash.now[:danger] = "エラーがあるため投稿できませんでした。"
+      render 'posts/new'
+    end
   end
 
   def show
