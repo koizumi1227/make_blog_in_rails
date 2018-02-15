@@ -11,6 +11,11 @@
     <%= f.text_area :content %>
   </div>
 
+  <div class="field">
+    <%= f.label :postimage, "画像" %><br />
+    <%= f.file_field :postimage %>
+  </div>
+
   <div class="actions">
     <%= f.submit "投稿" %>
   </div>
