@@ -14,7 +14,7 @@ class PostimageUploader < CarrierWave::Uploader::Base
   end
 
   def size_range
-    1..5.Megabytes
+    1..5.megabytes
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
