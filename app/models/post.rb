@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :content, presence: true
   # postimage の validation(size) は uploaders/postimage_uploader.rb
     # def size_range
-    #   1..5.Megabytes
+    #   1..5.megabytes
     # end
   # で行う。数字を変更する場合はこれを変更する。
 end
