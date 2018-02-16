@@ -34,6 +34,10 @@ gem 'jbuilder', '~> 2.5'
 
 # ユーザー ログインや登録を管理
 gem 'devise'
+# 画像アップローダー
+gem 'carrierwave', '~> 1.0'
+# 画像リサイズ
+gem 'mini_magick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
