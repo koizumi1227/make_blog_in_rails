@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @comment = Comment.new
   end
 
   def create
@@ -11,12 +12,14 @@ class PostsController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = "エラーがあるため投稿できませんでした。"
+      @comment = Comment.new
       render 'posts/new'
     end
   end
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
     # @post = Post.includes(:user).find(params[:id])
   end
 
