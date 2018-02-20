@@ -1,0 +1,12 @@
+<h3>コメントを書く</h3>
+<%= form_for([@post, @comment]) do |f| %>
+  <%= render 'shared/error_messages', obj: @comment %>
+
+  <p><%= f.label :commenter %></p>
+  <%= f.text_field :commenter %>
+
+  <p><%= f.label :comment %></p>
+  <%= f.text_area :comment %>
+
+  <p><%= f.submit %></p>
+<% end %>

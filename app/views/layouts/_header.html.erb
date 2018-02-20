@@ -5,17 +5,18 @@
   <div class="container">
     <nav>
       <ul class="nav navbar-nav">
-        <li><%= link_to "ホーム", root_path %></li>
-        <li><%= link_to "ここについて", about_path %></li>
+
+        <li><%= link_to t('home'), root_path %></li>
+        <li><%= link_to  t('about'), about_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "日記投稿", new_post_path %></li>
+        <li><%= link_to t('post diary'), new_post_path %></li>
 
         <% if user_signed_in? %>
-          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to t('log out'), destroy_user_session_path, method: :delete %></li>
         <% else %>
-          <li><%= link_to "ログイン", user_session_path %></li>
-          <li><%= link_to "登録", new_user_registration_path %></li>
+          <li><%= link_to t('log in'), user_session_path %></li>
+          <li><%= link_to t('signup'), new_user_registration_path %></li>
         <% end %>
       </ul>
     </nav>

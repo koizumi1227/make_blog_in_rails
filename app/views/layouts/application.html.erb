@@ -9,12 +9,11 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <!-- devise gem -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
     <% end %>
+
+    <!-- ユーザー名表示 -->
     <%= @user if user_signed_in? %>
   <div class="container">
     <%= yield %>
