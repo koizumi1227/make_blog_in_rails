@@ -1,0 +1,11 @@
+<h3>コメント</h3>
+
+<% @post.comments.each do |body| %>
+    <p>名前 : <%= body.commenter %></p>
+    <p>コメント : <%= body.comment %></p>
+    <!-- ログインをしていれば「削除」linkを表示 -->
+    <% if user_signed_in? %>
+      <p><%= link_to t('delete'), [@post,body], method: :delete %></p>
+    <% end %>
+      <!-- post_comment_path(@post, @post.comments[:id]) -->
+<% end %>

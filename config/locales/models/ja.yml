@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      post: 日記投稿
+      comment: コメント
+    attributes:
+      user:
+        id: ID
+        username: ユーザー名
+        created_at: 登録日時
+        updated_at: 更新日時
+        email: メールアドレス
+        password: パスワード
+        password_confirmation:  パスワード確認
+      post:
+        title: タイトル
+        content: 本文
+        postimage: 画像
+        created_at: 登録日時
+        updated_at: 更新日時
+      comment:
+        commenter: 名前
+        comment: コメント
+        created_at: 登録日時
+        updated_at: 更新日時
+  # helpers:
+  #   submit:
+  #     Contribution: "登録する"
+  #     update: "更新する"

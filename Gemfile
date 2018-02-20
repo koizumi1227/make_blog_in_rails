@@ -36,6 +36,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 # 画像アップローダー
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-i18n'
 # 画像リサイズ
 gem 'mini_magick'
 # Use Capistrano for deployment
