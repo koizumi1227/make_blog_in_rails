@@ -37,6 +37,10 @@ class PostimageUploader < CarrierWave::Uploader::Base
     process resize_to_fill: [150, 150]
   end
 
+  # validation error時の再表示する時の画像サイズ
+  version :thumb_error do
+    process resize_to_fill: [75, 75]
+  end
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:
   def extension_whitelist

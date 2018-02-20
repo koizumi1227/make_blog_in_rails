@@ -14,7 +14,9 @@
 
   <div class="field">
     <%= f.label :postimage %><br />
+    <%= image_tag(@post.postimage.thumb_error.url) if @post.postimage? %>
     <%= f.file_field :postimage %>
+    <%= f.hidden_field :postimage_cache %>
   </div><br />
 
   <div class="actions">
