@@ -1,10 +1,13 @@
 <h1>投稿一覧表示</h1><br><hr>
 <% @post.each do |post| %>
-  <h2><%= link_to post.title, post_path(post.id)  %></h2>
-  <p>本文　：　<%= post.content%></p>
-  <p><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
-  <p><%= image_tag(post.postimage.thumb.url) if post.postimage?%></p>
-  <p><em>ユーザー名：<%= post.user.username %> </em></p>
-  <p><%= time_ago_in_words(post.created_at)%></p>
-  <br><hr>
+<!-- published の記事のみ表示 published(公開) -->
+  <% if post.published? %>
+    <h2><%= link_to post.title, post_path(post.id)  %></h2>
+    <p>本文　：　<%= post.content%></p>
+    <p><%= post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
+    <p><%= image_tag(post.postimage.thumb.url) if post.postimage?%></p>
+    <p><em>ユーザー名：<%= post.user.username %> </em></p>
+    <p><%= time_ago_in_words(post.created_at)%></p>
+    <br><hr>
+  <% end %>
 <% end %>
