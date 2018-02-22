@@ -24,6 +24,12 @@ ja:
         comment: コメント
         created_at: 登録日時
         updated_at: 更新日時
+  enums:
+      post:
+        status:
+          draft: 下書き
+          published: 公開済
+          archived: アーカイブ
   # helpers:
   #   submit:
   #     Contribution: "登録する"

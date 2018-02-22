@@ -4,10 +4,6 @@
 <p><%= @post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
 <p><%= @post.user.username %></p>
 <p><%= image_tag(@post.postimage_url) if @post.postimage?%></p>
-<!-- ログインをしていれば「削除」linkを表示 -->
-<% if user_signed_in? %>
-  <p><%= link_to t('delete'), @post, method: :delete %></p>
-<% end %>
 <hr>
 
 <%= render 'comments/show' %>

@@ -14,7 +14,7 @@
     <% end %>
 
     <!-- ユーザー名表示 -->
-    <%= @user if user_signed_in? %>
+    <%= @user.username if user_signed_in? %>
   <div class="container">
     <%= yield %>
   </div>
