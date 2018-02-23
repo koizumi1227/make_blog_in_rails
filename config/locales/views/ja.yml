@@ -7,11 +7,13 @@ ja:
   home: ホーム
   about: ここについて
   post diary: 日記投稿
+  posted diary: 投稿記事一覧
   log in: ログイン
   log out: ログアウト
   signup: ユーザー登録
   error: エラー
   name or email: "ユーザー名 or メールアドレス"
+  edit: 編集
   delete: 削除
   Forgot your password?: パスワードを忘れたら？
   Didn't receive confirmation instructions?: 確認のメール再送信
