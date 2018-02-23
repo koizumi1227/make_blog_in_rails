@@ -4,9 +4,11 @@ Rails.application.routes.draw do
   get '/about', to: 'home#about'
 
   resource :user, only: [:index] do
-    resources :posts, only: [:index, :show]
+    resources :posts,only: [:index, :show, :edit, :update, :destroy],
+              as: 'manage_posts',
+              controller: 'manage_posts'
   end
-  resources :posts do
+  resources :posts, only: [:show, :new, :create] do
     resources :comments, only: [:create, :destroy]
   end
 
