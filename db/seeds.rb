@@ -34,3 +34,15 @@ users = User.order(:created_at).take(3)
   post.save!
   end
 end
+
+9.times do |n|
+  2.times do
+    commenter = Faker::Name.first_name
+    comment = Faker::Lorem.sentence(2)
+    post_id = "#{n+1}"
+    comments = Comment.new(commenter: commenter,
+                            comment: comment,
+                            post_id: post_id)
+    comments.save!
+  end
+end
