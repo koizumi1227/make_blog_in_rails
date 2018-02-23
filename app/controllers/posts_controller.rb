@@ -2,16 +2,6 @@ class PostsController < ApplicationController
   include ActionView::Helpers::UrlHelper
   before_action :authenticate_user!, only: [:create, :new, :destroy]
 
-  def index
-    if user_signed_in?
-      @user = current_user
-      @user_post = current_user.posts.order('created_at DESC')
-      render 'user_post_index'
-    else
-      redirect_to root_path
-    end
-  end
-
   def new
     @user = current_user
     @post = Post.new

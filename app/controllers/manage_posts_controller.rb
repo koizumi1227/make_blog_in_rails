@@ -4,7 +4,8 @@ class ManagePostsController < ApplicationController
   # GET /manage_posts
   # GET /manage_posts.json
   def index
-    @manage_posts = ManagePost.all
+      @user = current_user
+      @user_post = current_user.posts.order('created_at DESC')
   end
 
   # GET /manage_posts/1
