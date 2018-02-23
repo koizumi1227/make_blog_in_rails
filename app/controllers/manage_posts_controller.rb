@@ -1,5 +1,5 @@
 class ManagePostsController < ApplicationController
-  before_action :set_manage_post, only: [:show, :edit, :update, :destroy]
+  # before_action :set_manage_post, only: [:show, :edit, :update, :destroy]
 
   # GET /manage_posts
   # GET /manage_posts.json
@@ -11,6 +11,9 @@ class ManagePostsController < ApplicationController
   # GET /manage_posts/1
   # GET /manage_posts/1.json
   def show
+    @user = current_user
+    # user/posts (ログイン状態でマイページからアクセスしたとき)
+    @user_post = current_user.posts.find(params[:id])
   end
 
   # GET /manage_posts/new

@@ -22,17 +22,10 @@ class PostsController < ApplicationController
   end
 
   def show
-    if user_signed_in?
-      @user = current_user
-      # user/posts (ログイン状態でマイページからアクセスしたとき)
-        if current_page?(user_posts_path)
-        @user_post = current_user.posts.find(params[:id])
-        render :user_post
-      end
-    end
-      @post = Post.find(params[:id])
-      # @post = Post.includes(:user).find(params[:id])
-      @comment = Comment.new
+    @user = current_user
+    @post = Post.find(params[:id])
+    # @post = Post.includes(:user).find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
