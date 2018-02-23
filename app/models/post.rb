@@ -17,4 +17,8 @@ class Post < ApplicationRecord
     #   1..5.megabytes
     # end
   # で行う。数字を変更する場合はこれを変更する。
+
+  # publishedがenumでscopeが用意はされてますが、学習のために残しています。
+  # scope :published, -> { where(status: 1) }
+
 end
