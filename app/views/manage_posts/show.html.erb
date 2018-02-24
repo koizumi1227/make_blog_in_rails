@@ -4,7 +4,5 @@
 <p><%= @user_post.created_at.strftime('%Y-%m-%d %H:%M:%S') %></p>
 <p><%= @user_post.user.username %></p>
 <p><%= image_tag(@user_post.postimage_url) if @user_post.postimage?%></p>
-<% if user_signed_in? %>
-  <p><%= link_to t('edit'), edit_user_post_path(@user_post) %></p>
-  <p><%= link_to t('delete'), @post, method: :delete %></p>
-<% end %>
+<p><%= link_to t('edit'), edit_user_manage_post_path(@user_post) %></p>
+<p><%= link_to t('delete'), user_manage_post_path(@user_post), method: :delete %></p>
