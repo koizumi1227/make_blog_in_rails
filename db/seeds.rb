@@ -26,18 +26,33 @@ users = User.order(:created_at).take(3)
 3.times do
   title = Faker::Lorem.sentence(5)
   content = Faker::Lorem.paragraphs(5)
-  postimage =  File.open(File.join(Rails.root, "test/image/sampleimage.jpg"))
+  postimage_published =  File.open(File.join(Rails.root, "test/image/sampleimage.jpg"))
+  postimage_archived =  File.open(File.join(Rails.root, "test/image/sampleimage_2.jpg"))
   users.each do |user|
-  post = user.posts.new(title: title,
+  # draft
+  post_1 = user.posts.new(title: title,
                   content: content,
-                  postimage: postimage,
+                  status: 0
+                )
+  post_1.save!
+  # published
+  post_2 = user.posts.new(title: title,
+                  content: content,
+                  postimage: postimage_published,
                   status: 1
                 )
-  post.save!
+  post_2.save!
+  # archived
+  post_3 = user.posts.new(title: title,
+                  content: content,
+                  postimage: postimage_archived,
+                  status: -1
+                )
+  post_3.save!
   end
 end
 
-9.times do |n|
+27.times do |n|
   2.times do
     commenter = Faker::Name.first_name
     comment = Faker::Lorem.sentence(2)
