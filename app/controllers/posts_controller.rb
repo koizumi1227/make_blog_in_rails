@@ -28,21 +28,6 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
-  def edit
-    @user = current_user
-    @post = Post.find(params[:id])
-  end
-
-  def update
-    @user = current_user
-    @post = Post.find(params[:id])
-    if  @post.update_attributes(post_params)
-      redirect_to user_posts_path, flash: {success: '編集完了'}
-    else
-      render 'edit'
-    end
-  end
-
   def destroy
     @post = Post.find(params[:id])
     @post.destroy

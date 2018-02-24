@@ -1,17 +1,37 @@
-<%= form_with(model: manage_post, local: true) do |form| %>
-  <% if manage_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(manage_post.errors.count, "error") %> prohibited this manage_post from being saved:</h2>
+<%= render 'shared/error_messages', obj: @post %>
 
-      <ul>
-      <% manage_post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for(@post) do |f| %>
+  <div class="field">
+      <%= f.label :title %>
+    <p>
+      <%= f.text_field :title, autofocus: true %>
+    </p>
+  </div>
+
+  <div class="field">
+      <%= f.label :content %>
+    <p>
+      <%= f.text_area :content %>
+    </p>
+  </div>
+
+  <div class="field">
+      <%= f.label :postimage %>
+    <p>
+      <%= image_tag(@post.postimage.thumb_error.url) if @post.postimage? %>
+      <%= f.file_field :postimage %>
+      <%= f.hidden_field :postimage_cache %>
+    </p>
+  </div>
+
+  <div class="field">
+      <%= f.label :status %>
+    <p>
+      <%= f.select :status, Post.statuses.keys.map{|k| [Post.statuses_i18n[k], k]} %>
+    </p>
+  </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit yield(:button_text) %>
   </div>
 <% end %>
