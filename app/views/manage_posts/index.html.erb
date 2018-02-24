@@ -8,6 +8,6 @@
     <p><%= time_ago_in_words(post.created_at)%></p>
     <p>状態 : <%= post.status_i18n %></p>
     <p><%= link_to t('edit'), edit_user_manage_post_path(post) %></p>
-    <p><%= link_to t('delete'), post_path(post), method: :delete %></p>
+    <p><%= link_to t('delete'), user_manage_post_path(post), method: :delete %></p>
     <br><hr>
 <% end %>

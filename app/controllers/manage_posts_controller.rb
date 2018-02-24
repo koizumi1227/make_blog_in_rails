@@ -13,7 +13,7 @@ class ManagePostsController < ApplicationController
   def show
     @user = current_user
     # user/posts (ログイン状態でマイページからアクセスしたとき)
-    @user_post = current_user.posts.find(params[:id])
+    @user_post = @user.posts.find(params[:id])
   end
 
   # GET /manage_posts/new
@@ -58,11 +58,10 @@ class ManagePostsController < ApplicationController
   # DELETE /manage_posts/1
   # DELETE /manage_posts/1.json
   def destroy
-    @manage_post.destroy
-    respond_to do |format|
-      format.html { redirect_to manage_posts_url, notice: 'Manage post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    user_post = Post.find(params[:id])
+    user_post.destroy
+    flash[:success] = "記事を削除しました"
+    redirect_to user_manage_posts_path
   end
 
   private
