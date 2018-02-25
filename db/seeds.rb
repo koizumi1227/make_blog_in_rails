@@ -23,7 +23,7 @@ user.save!
 end
 
 users = User.order(:created_at).take(3)
-3.times do
+5.times do
   title = Faker::Lorem.sentence(5)
   content = Faker::Lorem.paragraphs(5)
   postimage_published =  File.open(File.join(Rails.root, "test/image/sampleimage.jpg"))
@@ -52,11 +52,13 @@ users = User.order(:created_at).take(3)
   end
 end
 
-27.times do |n|
+# 投稿一覧をだしたときに降順のため、最新の記事からコメント表示
+last_post = Post.last.id
+10.times do |n|
   2.times do
     commenter = Faker::Name.first_name
     comment = Faker::Lorem.sentence(2)
-    post_id = "#{n+1}"
+    post_id = "#{last_post - n}"
     comments = Comment.new(commenter: commenter,
                             comment: comment,
                             post_id: post_id)
