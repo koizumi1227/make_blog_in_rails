@@ -9,3 +9,5 @@
     <p><%= time_ago_in_words(post.created_at)%></p>
     <br><hr>
 <% end %>
+
+<%= paginate @post %>
