@@ -42,6 +42,8 @@ gem 'carrierwave-i18n'
 gem 'mini_magick'
 # enum日本語化
 gem 'enum_help'
+# pagination
+gem 'kaminari'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
