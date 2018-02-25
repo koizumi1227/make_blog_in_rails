@@ -2,6 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!, only: [:destroy]
 
   def create
+    @user = current_user
     @post = Post.find(params[:post_id])
     @comment = @post.comments.create(comment_params)
     if @comment.valid?
