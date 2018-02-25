@@ -1,6 +1,6 @@
 require 'faker'
 user = User.new(username: "sampleuser",
-                email: "sample@sample.com",
+                email: "sample@example.com",
                 password:              "111111",
                 password_confirmation: "111111",
                 confirmed_at: DateTime.now
@@ -10,7 +10,7 @@ user.save!
 
 5.times do |n|
   name  = "sampleuser#{n+1}"
-  email = "sample#{n+1}@sample.com"
+  email = "sample#{n+1}@example.com"
   password = "password"
   user = User.new(username: name,
                   email: email,
