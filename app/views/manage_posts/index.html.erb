@@ -11,3 +11,5 @@
     <p><%= link_to t('delete'), user_manage_post_path(post), method: :delete %></p>
     <br><hr>
 <% end %>
+
+<%= paginate @user_post %>
