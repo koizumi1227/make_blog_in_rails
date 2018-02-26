@@ -3,7 +3,17 @@ class ManagePostsController < ApplicationController
 
   def index
       @user = current_user
-      @user_post = current_user.posts.order('created_at DESC').page params[:page]
+      # html と csv で分ける
+      respond_to do |format|
+        format.html do
+          @user_post = current_user.posts.
+                       order('created_at DESC').page params[:page]
+        end
+        format.csv do
+          @user_post_csv = current_user.posts
+          send_data render_to_string, filename: "user_posts.csv", type: :csv
+        end
+      end
   end
 
   def show
