@@ -32,21 +32,21 @@ users = User.order(:created_at).take(3)
   # draft
   post_1 = user.posts.new(title: title,
                   content: content,
-                  status: 0
+                  status: :draft
                 )
   post_1.save!
   # published
   post_2 = user.posts.new(title: title,
                   content: content,
                   postimage: postimage_published,
-                  status: 1
+                  status: :published
                 )
   post_2.save!
   # archived
   post_3 = user.posts.new(title: title,
                   content: content,
                   postimage: postimage_archived,
-                  status: -1
+                  status: :archived
                 )
   post_3.save!
   end
