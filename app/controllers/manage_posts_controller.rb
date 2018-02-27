@@ -1,6 +1,5 @@
 class ManagePostsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   def index
       @user = current_user
       # html と csv で分ける
