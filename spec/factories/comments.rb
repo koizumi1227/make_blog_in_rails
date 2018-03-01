@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
-    commenter "MyString"
-    comment "MyText"
-    post nil
+    commenter "サンプルコメンター"
+    comment "サンプルコメント"
+    association :post
   end
 end
